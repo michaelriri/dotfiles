@@ -1,0 +1,25 @@
+#! /bin/bash
+
+alias ls="ls --color=auto"
+alias ll="ls -l"
+alias la="ls -a"
+
+# shortcuts
+alias dl="cd ~/Downloads"
+
+alias lt="ls -lter"
+
+# copy file interactive
+alias cp='cp -i'
+
+# move file interactive
+alias mv='mv -i'
+
+# terminal opening
+alias open='open -F'
+
+alias ml='cd ~/Desktop/FALL_2022/ml4t'
+alias ml4t='cd ~/Desktop/FALL_2022/ml4t'
+alias sdp='cd ~/Desktop/FALL_2022/sdp'
+alias das='cd ~/Desktop/FALL_2022/das'
+alias db='cd ~/Desktop/FALL_2022/db'

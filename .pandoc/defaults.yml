@@ -1,0 +1,16 @@
+verbosity: ERROR
+table-of-contents: true
+toc-depth: 4
+variables:
+  linkcolor: blue
+  mainfont: Verdana
+  monofont: "Cascadia Code"
+  geometry:
+    - a4paper
+    - margin=2cm
+pdf-engine: xelatex
+highlight-style: ${HOME}/.pandoc/pygments.theme
+include-in-header:
+  - ${HOME}/.pandoc/bullet.tex
+  - ${HOME}/.pandoc/inline_code.tex
+  - ${HOME}/.pandoc/quote.tex
