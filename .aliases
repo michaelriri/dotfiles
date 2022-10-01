@@ -23,3 +23,6 @@ alias ml4t='cd ~/Desktop/FALL_2022/ml4t'
 alias sdp='cd ~/Desktop/FALL_2022/sdp'
 alias das='cd ~/Desktop/FALL_2022/das'
 alias db='cd ~/Desktop/FALL_2022/db'
+
+
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
