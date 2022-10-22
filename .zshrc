@@ -1,5 +1,6 @@
 eval "$(pyenv init -)"
 source ~/.aliases
+source ~/.zshenv
 
 zmodload zsh/complist
 
