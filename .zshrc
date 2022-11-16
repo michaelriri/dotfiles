@@ -10,6 +10,10 @@ _comp_options+=(globdots) # With hidden files
 
 compdef vman="man"
 
+# save history between all shells
+setopt inc_append_history
+setopt share_history
+
 setopt MENU_COMPLETE    # Automatically highlight first element of completion menu
 setopt AUTO_LIST        # Automatically list choices on ambiguous completion.
 setopt COMPLETE_IN_WORD # Complete from both ends of a word.
