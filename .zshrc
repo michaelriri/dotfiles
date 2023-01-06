@@ -1,38 +1,19 @@
-eval "$(pyenv init -)"
-source ~/.aliases
-source ~/.zshenv
+export GOPATH=$HOME/go
+export CUSTOM_BIN=$HOME/bin
+export PATH=$CUSTOM_BIN:$GOPATH/bin:$PATH
 
-zmodload zsh/complist
+# make history size very large
+export HISTSIZE=99999
+export HISTFILESIZE=999999
+export SAVEHIST=$HISTSIZE
 
-autoload -Uz compinit && compinit
+export ZSH="$HOME/.oh-my-zsh"
 
-_comp_options+=(globdots) # With hidden files
+ZSH_THEME="robbyrussell"
 
-compdef vman="man"
+plugins=(git)
 
-# save history between all shells
-setopt inc_append_history
-setopt share_history
+source $ZSH/oh-my-zsh.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # add fzf key-bindings e.g. ctrl-r for history search
 
-setopt MENU_COMPLETE    # Automatically highlight first element of completion menu
-setopt AUTO_LIST        # Automatically list choices on ambiguous completion.
-setopt COMPLETE_IN_WORD # Complete from both ends of a word.
-
-zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*' completer _extensions _complete _approximate
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select 
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
-autoload -U promptinit; promptinit
-
-zstyle ':prompt:pure:path' color cyan
-zstyle ':prompt:pure:prompt:success' color magenta
-zstyle ':prompt:pure:prompt:error' color red
-zstyle :prompt:pure:git:stash show yes
-
-prompt pure
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' # alias for dotfiles bare repo
