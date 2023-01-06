@@ -16,4 +16,4 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # add fzf key-bindings e.g. ctrl-r for history search
 
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' # alias for dotfiles bare repo
+alias {dotfiles,dot}='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' # alias for dotfiles bare repo
