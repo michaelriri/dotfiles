@@ -1,0 +1,5 @@
+#! /bin/bash
+
+fzf --ansi \
+--preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
+--preview 'bat --color=always --theme "gruvbox-dark" {}'

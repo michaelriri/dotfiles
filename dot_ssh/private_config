@@ -1,0 +1,34 @@
+
+Host *
+    ControlMaster auto
+    ControlPath ~/.ssh/socket-%r@%h:%p
+    ControlPersist yes
+    ServerAliveInterval 240
+    ServerAliveCountMax 10
+
+Host scctest
+  HostName scctest
+  User mrios
+
+Host scctest
+  HostName scctest
+  User mrios
+
+Host sccdev
+  User mrios
+  ForwardAgent yes
+  AddKeysToAgent yes
+  IdentityFile /Users/mrios/.ssh/id_ed25519
+
+Host sccint
+  User mrios
+
+Host cttldev
+  HostName cttldevci2.jpl.nasa.gov
+  User mrios
+
+Host github.jpl.nasa.gov
+  ForwardAgent yes
+  AddKeysToAgent yes
+  User git
+  IdentityFile ~/.ssh/id_ed25519_github

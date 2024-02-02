@@ -1,0 +1,29 @@
+#! /bin/bash
+
+set -euo pipefail
+
+current_session=""
+if [ -n "${TMUX:+}" ]; then
+    current_session="true"
+fi
+
+sessions_info=$(tmux list-sessions 2>/dev/null || true)
+
+if [ -z "$sessions_info" ]; then
+    echo "No TMUX sessions found."
+    tmux new-session -s default
+    exit 1
+fi
+
+selected_session=$(echo "$sessions_info" | fzf --header="Sessions" --height=10 --layout=reverse --prompt="Select a TMUX session: " | awk -F: '{print $1}' | tr -d " ")
+
+if [ -z "$selected_session" ]; then
+    echo "No session selected. Exiting."
+    exit 1
+fi
+
+if [ -n "$current_session" ]; then
+    tmux switch-client -t "$selected_session"
+else
+    tmux attach-session -t "$selected_session"
+fi

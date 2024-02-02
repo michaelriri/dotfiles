@@ -1,0 +1,9 @@
+#! /bin/bash
+
+# hacky way to rerun commands without the '$ ' prefix,
+# which is commonly used in examples found on the internet.
+
+
+command="${@:1}"
+echo "'$ ' detected. Running: '$command'"
+eval "$command"

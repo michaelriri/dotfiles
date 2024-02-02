@@ -1,0 +1,12 @@
+#!/usr/bin/env tcsh
+
+if ( ! $?PATH ) then                                                                                                                                 
+  setenv PATH /usr/local/bin                                                                                                             
+else                                                                                                                                                       
+  setenv PATH /usr/local/bin:${PATH}                                                                                              
+endif
+
+tty > /dev/null
+if ($? == 0) then
+    exec zsh
+endif
