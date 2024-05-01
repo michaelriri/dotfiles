@@ -23,11 +23,11 @@ if command -v pyenv >/dev/null 2>&1; then
 fi
 
 if command -v bat >/dev/null 2>&1; then
-    alias cat='bat --theme "gruvbox-dark"'
+    alias cat='bat --theme "Visual Studio Dark+"'
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export DOCKER_DEFAULT_PLATFORM=linux/amd64
     PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
-    PATH="$HOME/workspace/notes/scripts:$PATH"
+    PATH="/Volumes/data/notes/scripts:$PATH"
 fi
