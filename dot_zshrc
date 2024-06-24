@@ -31,3 +31,24 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
     PATH="/Volumes/data/notes/scripts:$PATH"
 fi
+
+function custom_code() {
+    # wrapper for `code` command to fix:
+    # Unable to connect to VS Code server: Error in request.
+    # Error: connect ECONNREFUSED ....
+    #     at PipeConnectWrap.afterConnect [as oncomplete] (node:net:1555:16) {
+    #   errno: -111,
+    #   code: 'ECONNREFUSED',
+    #   syscall: 'connect',
+    #   address: '...'
+    # }
+    command code "$@"
+
+    # Check if the command failed, update env var and rerun
+    if [[ $? -ne 0 ]] && [[ "$OSTYPE" == "linux"* ]]; then
+        echo "The 'code' command failed. updating VSCODE_IPC_HOOK_CLI is set to true."
+        export VSCODE_IPC_HOOK_CLI=$(lsof 2>/dev/null | grep $UID/vscode-ipc | awk '{print $(NF-1)}' | head -n 1)
+        command code "$@"
+    fi
+}
+alias code='custom_code'
