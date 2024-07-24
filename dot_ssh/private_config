@@ -1,3 +1,7 @@
+  Host mslsmsaweb1.jpl.nasa.gov
+    HostName mslsmsaweb1.jpl.nasa.gov
+    User mrios
+
 
 Host *
     ControlMaster auto
@@ -31,4 +35,10 @@ Host github.jpl.nasa.gov
   ForwardAgent yes
   AddKeysToAgent yes
   User git
-  IdentityFile ~/.ssh/id_ed25519_github
+  IdentityFile ~/.ssh/id_ed25519
+
+Host github.com
+  ForwardAgent yes
+  AddKeysToAgent yes
+  User git
+  IdentityFile ~/.ssh/id_ed25519
