@@ -1,0 +1,16 @@
+[core]
+	editor = code --wait
+	longpaths = true
+	symlinks = true
+	ignorecase = false
+	pager = less -X -F
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[push]
+	autoSetupRemote = true
+[alias]
+	l = log --oneline --decorate --graph
+	branch-clean = !git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
