@@ -14,3 +14,5 @@
 [alias]
 	l = log --oneline --decorate --graph
 	branch-clean = !git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
+[user]
+	email = riosmichael2895@gmail.com
