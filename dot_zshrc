@@ -1,6 +1,6 @@
 #! /bin/zsh
 
-export EDITOR="code --wait"
+export EDITOR=$(command -v code >/dev/null 2>&1 && echo "code --wait" || echo "vim")
 export PATH=$HOME/bin:$PATH
 
 export PATH=$HOME/.cargo/bin:$PATH
