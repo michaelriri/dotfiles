@@ -31,3 +31,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
     PATH="/Volumes/data/notes/scripts:$PATH"
 fi
+
+# TMUX / VSCODE fix: https://github.com/microsoft/vscode-remote-release/issues/6997
+preexec() {
+    if [ -n "$TMUX" ]; then
+        # echo "Running preexec"
+        export VSCODE_IPC_HOOK_CLI=$(lsof 2>/dev/null | grep $USER | grep vscode-ipc | awk '{print $(NF-1)}' | head -n 1)
+    fi
+}
