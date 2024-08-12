@@ -1,12 +1,29 @@
 #! /bin/bash
 
-COMMAND=("$@")
+binary_name="code"
+exclude_path="$HOME/bin"
+path_dirs=$(echo "$PATH" | tr ':' '\n')
+og_path=""
 
-/usr/local/bin/code "${COMMAND[@]}"
+for dir in $path_dirs; do
+  cur_bin_path="$dir/$binary_name"
+  if [ -x "$cur_bin_path" ] && [ "$dir" != "$exclude_path" ]; then
+    og_path="$cur_bin_path"
+  fi
+done
+
+if [ -z "$og_path" ]; then
+  echo "Binary not found or only one match."
+  return 1
+fi
+
+COMMAND=("$@")
+$og_path "${COMMAND[@]}"
 EXIT_STATUS=$?
 
-if [ $EXIT_STATUS -ne 0 ]; then
+if [ $EXIT_STATUS -ne 0 ] && [ -n "$TMUX" ]; then
   echo "The code command failed with exit status: $EXIT_STATUS"
   VSCODE_IPC_HOOK_CLI=$(lsof 2>/dev/null | grep "$USER" | grep vscode-ipc | awk '{print $(NF-1)}' | head -n 1)
   export VSCODE_IPC_HOOK_CLI
+  $og_path "${COMMAND[@]}"
 fi
