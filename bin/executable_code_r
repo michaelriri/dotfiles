@@ -1,0 +1,11 @@
+#! /bin/bash
+
+code "$1"
+EXIT_STATUS=$?
+if [[ $EXIT_STATUS -ne 0 ]]; then
+  echo "The code command failed with exit status: $EXIT_STATUS"
+  VSCODE_IPC_HOOK_CLI=$(lsof 2>/dev/null | grep "$USER" | grep vscode-ipc | awk '{print $(NF-1)}' | head -n 1)
+  export VSCODE_IPC_HOOK_CLI
+  echo "retrying after setting VSCODE_IPC_HOOK_CLI = $VSCODE_IPC_HOOK_CLI"
+  code "$1"
+fi

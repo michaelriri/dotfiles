@@ -32,3 +32,17 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
     PATH="/Volumes/data/notes/scripts:$PATH"
 fi
+
+# runs custom code_r command which checks if running in 
+# tmux and retries after refreshing vscode_ipc_hook_cli
+function check_code() {
+    source code_r $1 
+}
+
+preexec() {
+    local cmd="$1"
+    if [[ $cmd == code* ]]; then
+        local args="${cmd#* }" # remove the command part, leaving only the arguments
+        check_code $args
+    fi
+}
