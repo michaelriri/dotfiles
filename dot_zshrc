@@ -33,16 +33,16 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     PATH="/Volumes/data/notes/scripts:$PATH"
 fi
 
-# runs custom code_r command which checks if running in 
-# tmux and retries after refreshing vscode_ipc_hook_cli
-function check_code() {
-    source code_r $1 
-}
-
-preexec() {
-    local cmd="$1"
-    if [[ $cmd == code* ]]; then
-        local args="${cmd#* }" # remove the command part, leaving only the arguments
-        check_code $args
+precmd() {
+    exit_status=$?
+    last_command=$(fc -ln -1)
+    if [ $exit_status -ne 0 ] && [[ "$last_command" == code* ]]; then
+        echo "Exit status: $exit_status for cmd: '$last_command'"
+        temp_file=$(mktemp)
+        echo "export VSCODE_IPC_HOOK_CLI=$(lsof 2>/dev/null | grep "$USER" | grep vscode-ipc | awk '{print $(NF-1)}' | head -n 1)" > "$temp_file"
+        cat "$temp_file"
+        source "$temp_file"
+        rm "$temp_file"
+        eval "$last_command"
     fi
 }

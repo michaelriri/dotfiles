@@ -1,0 +1,10 @@
+#! /bin/bash
+
+file=$(findf)
+echo "$file"
+
+if [ -z "$file" ]; then
+    exit 0
+fi
+
+code "$file"
