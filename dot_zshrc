@@ -46,3 +46,8 @@ precmd() {
         eval "$last_command"
     fi
 }
+
+fpath+=($HOME/.zsh/pure)
+
+autoload -U promptinit; promptinit
+prompt pure
