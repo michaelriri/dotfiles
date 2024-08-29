@@ -10,3 +10,8 @@ To install dotfiles on a new machine:
 ```
 $ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply michaelriri
 ```
+
+```
+$ install-deps
+```
+
