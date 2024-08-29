@@ -39,7 +39,7 @@ precmd() {
     if [ $exit_status -ne 0 ] && [[ "$last_command" == code* ]]; then
         echo "Exit status: $exit_status for cmd: '$last_command'"
         temp_file=$(mktemp)
-        echo "export VSCODE_IPC_HOOK_CLI=$(lsof 2>/dev/null | grep "$USER" | grep vscode-ipc | awk '{print $(NF-1)}' | head -n 1)" > "$temp_file"
+        echo "export VSCODE_IPC_HOOK_CLI=$(lsof 2>/dev/null | grep "$USER" | grep vscode-ipc | awk '{print $(NF-1)}' | head -n 1)" >"$temp_file"
         cat "$temp_file"
         source "$temp_file"
         rm "$temp_file"
@@ -49,5 +49,13 @@ precmd() {
 
 fpath+=($HOME/.zsh/pure)
 
-autoload -U promptinit; promptinit
+autoload -U promptinit
+promptinit
+
+zstyle :prompt:pure:git:stash show yes
+zstyle :prompt:pure:path color cyan
+zstyle :prompt:pure:prompt:success color 036
+zstyle :prompt:pure:prompt:error color 161
+zstyle :prompt:pure:execution_time color 229
+
 prompt pure
