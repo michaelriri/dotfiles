@@ -17,4 +17,19 @@ config.window_padding = {
     top = '2cell'
 }
 
+config.keys = { -- paste from the clipboard
+{
+    key = 'c',
+    mods = 'SUPER',
+    action = wezterm.action.CopyTo 'ClipboardAndPrimarySelection'
+}, {
+    key = 'v',
+    mods = 'SUPER',
+    action = wezterm.action.PasteFrom 'Clipboard'
+}, {
+    key = 'r',
+    mods = 'CMD|SHIFT',
+    action = wezterm.action.ReloadConfiguration
+}}
+
 return config
