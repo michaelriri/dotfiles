@@ -57,6 +57,6 @@ zstyle :prompt:pure:git:stash show yes
 zstyle :prompt:pure:path color cyan
 zstyle :prompt:pure:prompt:success color 036
 zstyle :prompt:pure:prompt:error color 161
-zstyle :prompt:pure:execution_time color 229
+zstyle :prompt:pure:execution_time color 240
 
 prompt pure
