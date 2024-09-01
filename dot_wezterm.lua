@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 local config = {}
 config.font = wezterm.font 'JetBrains Mono'
 config.font_size = 10.0
-config.color_scheme = 'Gruvbox dark, hard (base16)'
+config.color_scheme = 'Dark+'
 config.use_fancy_tab_bar = false
 config.show_tabs_in_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
@@ -30,6 +30,14 @@ config.keys = { -- paste from the clipboard
     key = 'r',
     mods = 'CMD|SHIFT',
     action = wezterm.action.ReloadConfiguration
+}, {
+    key = '-',
+    mods = 'SUPER',
+    action = wezterm.action.DecreaseFontSize
+}, {
+    key = '+',
+    mods = 'SUPER',
+    action = wezterm.action.IncreaseFontSize
 }}
 
 return config
