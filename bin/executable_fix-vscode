@@ -1,0 +1,3 @@
+#!/bin/bash
+
+export VSCODE_IPC_HOOK_CLI=$(lsof 2>/dev/null | grep "$USER" | grep vscode-ipc | awk '{print $(NF-1)}' | head -n 1)

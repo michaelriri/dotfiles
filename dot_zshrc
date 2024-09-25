@@ -33,20 +33,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     PATH="/Volumes/data/notes/scripts:$PATH"
 fi
 
-precmd() {
-    exit_status=$?
-    last_command=$(fc -ln -1)
-    if [ $exit_status -ne 0 ] && [[ "$last_command" == code* ]]; then
-        echo "Exit status: $exit_status for cmd: '$last_command'"
-        temp_file=$(mktemp)
-        echo "export VSCODE_IPC_HOOK_CLI=$(lsof 2>/dev/null | grep "$USER" | grep vscode-ipc | awk '{print $(NF-1)}' | head -n 1)" >"$temp_file"
-        cat "$temp_file"
-        source "$temp_file"
-        rm "$temp_file"
-        eval "$last_command"
-    fi
-}
-
 # HISTORY
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
@@ -56,7 +42,7 @@ HISTORY_IGNORE="(ls|ll|pwd|exit)*"
 
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
 
-## https://zsh.sourceforge.io/Doc/Release/Options.html (16.2.4 History)
+# https://zsh.sourceforge.io/Doc/Release/Options.html (16.2.4 History)
 
 setopt EXTENDED_HISTORY     # Write the history file in the ':start:elapsed;command' format.
 setopt INC_APPEND_HISTORY   # Write to the history file immediately, not when the shell exits.
