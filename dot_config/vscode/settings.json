@@ -26,7 +26,21 @@
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
-    "cSpell.enabled": false,
+    "cSpell.enabledLanguageIds": [
+        "markdown"
+    ],
+    "cSpell.languageSettings": [
+        {
+            // exclude code.
+            "ignoreRegExpList": [
+                "/^\\s*```[\\s\\S]*?^\\s*```/gm",
+                "/^```(?:.|\\s)+?^```/mig",
+                "`.*`",
+            ],
+            // use with Markdown files
+            "languageId": "markdown"
+        }
+    ],
     "debug.allowBreakpointsEverywhere": true,
     "diffEditor.hideUnchangedRegions.enabled": true,
     "diffEditor.ignoreTrimWhitespace": false,
@@ -83,7 +97,7 @@
     "terminal.integrated.scrollback": 10000,
     "update.mode": "manual",
     "vale.enableSpellcheck": true,
-    "vale.valeCLI.config": "/Users/mrios/.vale.ini",
+    "vale.valeCLI.config": "/Users/mrios/.config/vale/.vale.ini",
     "vale.valeCLI.path": "/opt/homebrew/bin/vale",
     "vim.foldfix": true,
     "vim.leader": "<space>",
