@@ -1,0 +1,105 @@
+{
+    "[dockercompose]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[dockerfile]": {
+        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    },
+    "[handlebars]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "cSpell.enabled": false,
+    "debug.allowBreakpointsEverywhere": true,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.maxComputationTime": 0,
+    "diffEditor.renderSideBySide": true,
+    "editor.bracketPairColorization.enabled": false,
+    "editor.fontFamily": "JetBrains Mono NL, Times New Roman",
+    "editor.fontLigatures": true,
+    "editor.formatOnSave": true,
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "editor.inlayHints.padding": true,
+    "editor.inlineSuggest.enabled": false,
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "none",
+    "editor.scrollBeyondLastLine": false,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "errorLens.enabled": true,
+    "errorLens.enabledInMergeConflict": false,
+    "evenBetterToml.formatter.alignComments": true,
+    "evenBetterToml.formatter.alignEntries": true,
+    "evenBetterToml.formatter.arrayAutoCollapse": true,
+    "evenBetterToml.formatter.indentEntries": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "extensions.autoCheckUpdates": false,
+    "extensions.ignoreRecommendations": true,
+    "git.openRepositoryInParentFolders": "never",
+    "git.useIntegratedAskPass": false,
+    "go.inlayHints.assignVariableTypes": true,
+    "go.inlayHints.compositeLiteralFields": true,
+    "go.inlayHints.functionTypeParameters": true,
+    "go.inlayHints.parameterNames": true,
+    "go.inlayHints.rangeVariableTypes": true,
+    "go.lintTool": "golangci-lint",
+    "go.toolsManagement.autoUpdate": true,
+    "jsonColorToken.languages": [
+        "go",
+        "json",
+        "jsonc"
+    ],
+    "markdown.preview.fontSize": 12,
+    "prettier.tabWidth": 2,
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.variableTypes": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "shellcheck.customArgs": [
+        "-x"
+    ],
+    "telemetry.telemetryLevel": "off",
+    "terminal.integrated.fontFamily": "JetBrains Mono NL",
+    "terminal.integrated.macOptionClickForcesSelection": true,
+    "terminal.integrated.macOptionIsMeta": true,
+    "terminal.integrated.minimumContrastRatio": 1,
+    "terminal.integrated.scrollback": 10000,
+    "update.mode": "manual",
+    "vale.enableSpellcheck": true,
+    "vale.valeCLI.config": "/Users/mrios/.vale.ini",
+    "vale.valeCLI.path": "/opt/homebrew/bin/vale",
+    "vim.foldfix": true,
+    "vim.leader": "<space>",
+    "window.restoreWindows": "none",
+    "window.zoomLevel": -1,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "none",
+    "yaml.customTags": [
+        "!ENV scalar",
+        "!ENV sequence",
+        "!relative scalar",
+        "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
+        "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
+        "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
+    ],
+    "yaml.schemas": {
+        "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+    }
+}
