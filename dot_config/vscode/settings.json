@@ -27,6 +27,7 @@
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
     "cSpell.enabledLanguageIds": [
+        "git-commit",
         "markdown"
     ],
     "cSpell.languageSettings": [
