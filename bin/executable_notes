@@ -15,9 +15,11 @@ open_notes() {
     fi
 
     if ! grep -q "### $DATE" "$FILE"; then
-        echo "" >>"$FILE"
-        echo "### $DATE" >>"$FILE"
-        echo "" >>"$FILE"
+        {
+            echo ""
+            echo "### $DATE"
+            echo ""
+        } >>"$FILE"
     fi
 
     code -g $FILE:100000000:1
