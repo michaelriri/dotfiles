@@ -98,7 +98,6 @@
     "terminal.integrated.scrollback": 10000,
     "update.mode": "manual",
     "vale.enableSpellcheck": true,
-    "vale.valeCLI.config": "/Users/mrios/.config/vale/.vale.ini",
     "vale.valeCLI.path": "/opt/homebrew/bin/vale",
     "vim.foldfix": true,
     "vim.leader": "<space>",

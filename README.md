@@ -19,4 +19,6 @@ VSCODE looks for settings in `$HOME/Library/Application\ Support/Code/User/setti
 
 ```
 ln -s $HOME/.config/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+
+ln -s $HOME/.config/vale/.vale.ini $HOME/Library/Application\ Support/vale/.vale.ini
 ```

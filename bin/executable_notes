@@ -1,0 +1,58 @@
+#! /bin/bash
+
+DIR=~/src/notes
+FILE="$DIR/notes.md"
+DATE=$(date +"%a, %Y-%m-%d")
+
+open_notes() {
+    if [ ! -d "$DIR" ]; then
+        mkdir -p "$DIR"
+        (cd "$DIR" && git init && git branch -M main)
+    fi
+
+    if [ ! -f "$FILE" ]; then
+        touch "$FILE"
+    fi
+
+    if ! grep -q "### $DATE" "$FILE"; then
+        echo "" >>"$FILE"
+        echo "### $DATE" >>"$FILE"
+        echo "" >>"$FILE"
+    fi
+
+    code -g $FILE:100000000:1
+}
+
+update_notes() {
+    TODAY=$(date +"%Y-%m-%d")
+    if git log --since="$TODAY 00:00" --until="$TODAY 23:59" --oneline | grep -q "$DATE"; then
+        echo "commit message: '$DATE' exists. Running amend."
+        git -C "$DIR" add .
+        git -C "$DIR" commit --amend --no-edit
+    else
+        echo "commit doesn't exist"
+        echo "$DIR"
+        git -C "$DIR" add .
+        git -C "$DIR" commit -m "$DATE"
+    fi
+}
+
+push_notes() {
+    git -C "$DIR" push
+}
+
+case "$1" in
+open)
+    open_notes
+    ;;
+update)
+    update_notes
+    ;;
+push)
+    push_notes
+    ;;
+*)
+    echo "Usage: $0 {open|update|push}"
+    exit 1
+    ;;
+esac
