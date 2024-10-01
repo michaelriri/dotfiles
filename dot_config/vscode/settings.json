@@ -26,6 +26,15 @@
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
+    "cSpell.customDictionaries": {
+        "custom": true, // Enable the `custom` dictionary
+        "user-words": {
+            "addWords": true,
+            "description": "Words used in by user",
+            "name": "user-words",
+            "path": "~/.user-words.txt"
+        }
+    },
     "cSpell.enabledLanguageIds": [
         "git-commit",
         "markdown"
