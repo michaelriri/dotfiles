@@ -27,7 +27,7 @@ open_notes() {
 
 update_notes() {
     TODAY=$(date +"%Y-%m-%d")
-    if git log --since="$TODAY 00:00" --until="$TODAY 23:59" --oneline | grep -q "$DATE"; then
+    if git -C $DIR log --since="$TODAY 00:00" --until="$TODAY 23:59" --oneline | grep -q "$DATE"; then
         echo "commit message: '$DATE' exists. Running amend."
         git -C "$DIR" add .
         git -C "$DIR" commit --amend --no-edit
