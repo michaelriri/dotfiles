@@ -34,11 +34,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # HISTORY
-HISTFILE="$HOME/.zsh_history"
-HISTSIZE=10000000
-SAVEHIST=10000000
-HIST_STAMPS="yyyy-mm-dd"
-HISTORY_IGNORE="(ls|ll|pwd|exit)*"
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=10000000
+export SAVEHIST=10000000
+export HIST_STAMPS="yyyy-mm-dd"
+export HISTORY_IGNORE="(ls|ll|pwd|exit)*"
 
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
 
