@@ -1,26 +1,23 @@
 [core]
-	longpaths = true
-	symlinks = true
-	ignorecase = false
-	pager = less -X -F
+longpaths = true
+symlinks = true
+ignorecase = false
+pager = less -X -F
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+required = true
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
 [push]
-	autoSetupRemote = true
+autoSetupRemote = true
 [alias]
-	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all
-	branch-clean = !git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
+lg = log --graph --abbrev-commit --decorate --pretty=format:'%C(bold blue)%<(8)%h%C(reset) %C(bold green)%<(14)%ar%C(reset) %C(white)%s%C(reset) %C(auto)%d%C(reset)'
+branch-clean = !git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
 [user]
-	email = {{ .email | quote }}
+email = {{ .email | quote }}
 [pull]
-	ff = only
+ff = only
 [column]
-	branch = auto
+branch = auto
 [branch]
-	sort = -committerdate
-
-
-
+sort = -committerdate
