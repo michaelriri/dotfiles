@@ -62,7 +62,9 @@ autoload -U compinit && compinit
 
 # https://github.com/nvm-sh/nvm
 export NVM_DIR=~/.nvm
-[ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+[ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" --no-use
+alias node='unalias node ; unalias npm ; nvm use default ; node $@'
+alias npm='unalias node ; unalias npm ; nvm use default ; npm $@'
 
 # https://github.com/sindresorhus/pure
 fpath+=($HOME/.zsh/pure)
