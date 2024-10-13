@@ -1,0 +1,40 @@
+#! /bin/bash
+
+in_tmux_session=${TMUX:+1}
+
+sessions_info=$(tmux list-sessions -F "#{session_name}" 2>/dev/null || true)
+
+if [ -z "$sessions_info" ]; then
+    echo "No TMUX sessions found."
+    tmux new-session -s default
+    exit 1
+fi
+
+selected_session=$(echo "$sessions_info" | fzf \
+    --header="Sessions" \
+    --layout=reverse \
+    --prompt="Select a TMUX session: " \
+    --preview="tmux list-windows -t {} && tmux capture-pane -e -p -t {}:$(tmux list-windows -t {} | grep '\*' | awk '{print $1}' | cut -d':' -f1)" \
+    --bind "enter:become:if [[ -n {} ]]; then echo {}; else echo {q}; fi" |
+    awk -F: '{print $1}' | tr -d " ")
+
+if [ -z "$selected_session" ]; then
+    echo "No session selected. Exiting."
+    exit 10
+fi
+
+echo "here."
+session_exists=$(echo "$sessions_info" | grep -w "$selected_session" || true)
+echo "here"
+
+if [[ -n $in_tmux_session && -n $session_exists ]]; then
+    echo "here"
+    tmux switch-client -t "$selected_session"
+elif [[ -n $in_tmux_session && -z $session_exists ]]; then
+    tmux new-session -d -s "$selected_session"
+    tmux switch -t "$selected_session"
+elif [[ -z $in_tmux_session && -n $session_exists ]]; then
+    tmux attach-session -t "$selected_session"
+else
+    tmux new-session -s "$selected_session"
+fi
