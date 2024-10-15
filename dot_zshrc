@@ -23,8 +23,9 @@ if command -v pyenv >/dev/null 2>&1; then
     eval "$(pyenv init -)"
 fi
 
+export BAT_THEME="Visual Studio Dark+"
 if command -v bat >/dev/null 2>&1; then
-    alias cat='bat --theme "Visual Studio Dark+"'
+    alias cat='bat'
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -39,6 +40,8 @@ export HISTSIZE=10000000
 export SAVEHIST=10000000
 export HIST_STAMPS="yyyy-mm-dd"
 export HISTORY_IGNORE="(ls|ll|pwd|exit)*"
+
+export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!*.git*'"
 
 # https://zsh.sourceforge.io/Doc/Release/Options.html (16.2.4 History)
 

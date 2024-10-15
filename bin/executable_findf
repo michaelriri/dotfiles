@@ -1,5 +1,13 @@
 #! /bin/bash
 
-fzf --ansi \
---preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
---preview 'bat --color=always --theme "gruvbox-dark" {}'
+set -euo pipefail
+
+path="${1:-}"
+
+files=$(eval "$FZF_DEFAULT_COMMAND $path")
+
+echo "$files" |
+    fzf --ansi \
+        --highlight-line \
+        --bind 'enter:become(code {})' \
+        --preview 'bat --color=always {}'
