@@ -6,8 +6,11 @@ path="${1:-}"
 
 files=$(eval "$FZF_DEFAULT_COMMAND $path")
 
-echo "$files" |
-    fzf --ansi \
-        --highlight-line \
-        --bind 'enter:become(code {})' \
-        --preview 'bat --color=always {}'
+selected=$(
+    echo "$files" |
+        fzf --ansi \
+            --highlight-line \
+            --preview 'bat --color=always {}'
+)
+echo "$selected"
+code "$selected"
