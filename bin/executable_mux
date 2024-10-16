@@ -27,7 +27,7 @@ fi
 session_exists=$(echo "$sessions_info" | grep -w "$selected_session" || true)
 
 if [[ -n $in_tmux_session && -n $session_exists ]]; then
-    tmux switch-client -t "$selected_session"
+    tmux switch-client -t "$selected_session" || tmux attach -t "$selected_session"
 elif [[ -n $in_tmux_session && -z $session_exists ]]; then
     tmux new-session -d -s "$selected_session"
     tmux switch -t "$selected_session"
