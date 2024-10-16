@@ -15,7 +15,7 @@ selected_session=$(echo "$sessions_info" | fzf \
     --highlight-line \
     --layout=reverse \
     --prompt="Select a TMUX session: " \
-    --preview="tmux list-windows -t {} && tmux capture-pane -e -p -t {}:$(tmux list-windows -t {} 2>/dev/null | grep '\*' | awk '{print $1}' | cut -d':' -f1 2>/dev/null) 2> /dev/null" \
+    --preview="tmux list-windows -t {} && tmux capture-pane -e -p -t {}:$(tmux list-windows -t {} 2> /dev/null)" \
     --bind "enter:accept-or-print-query" |
     awk -F: '{print $1}' | tr -d " ")
 
