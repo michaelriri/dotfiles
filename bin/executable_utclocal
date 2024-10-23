@@ -1,34 +1,3 @@
-#! /usr/bin/python3
+#! /bin/bash
 
-from datetime import datetime, timedelta
-import argparse
-import time
-
-
-def valid_time_format(value):
-    try:
-        return datetime.strptime(value, "%H:%M")
-    except ValueError:
-        raise argparse.ArgumentTypeError(f"Invalid time format. Please use the format HH:MM.")
-
-
-def is_dst():
-    return bool(time.localtime().tm_isdst)
-
-
-def main():
-    parser = argparse.ArgumentParser(description="Process a UTC time string in the format HH:MM and print local time.")
-    parser.add_argument("time", type=valid_time_format, help="Input time in the format HH:MM")
-    args = parser.parse_args()
-    print(f'Time Parsed from Input: {args.time.strftime("%H:%M")}')
-
-    dt = datetime.now().replace(hour=args.time.hour, minute=args.time.minute)
-    delta = 7 if is_dst() else 8
-    new = dt - timedelta(hours=delta)
-
-    print(new.strftime("%H:%M"))
-    print(new.strftime("%I:%M%p"))
-
-
-if __name__ == "__main__":
-    main()
+date -u +"%Y-%j %H:%M:%S"
