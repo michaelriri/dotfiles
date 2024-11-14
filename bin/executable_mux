@@ -1,7 +1,6 @@
 #! /bin/bash
 
-in_tmux_session=${TMUX:+1}
-
+in_tmux_session=$([ -n "$TMUX" ] && ps -o comm= -p $(ps -o ppid= -p $$) | grep -q '^tmux$')
 sessions_info=$(tmux list-sessions -F "#{session_name}" 2>/dev/null || true)
 
 if [ -z "$sessions_info" ]; then
@@ -15,7 +14,7 @@ selected_session=$(echo "$sessions_info" | fzf \
     --highlight-line \
     --layout=reverse \
     --prompt="Select a TMUX session: " \
-    --preview="tmux list-windows -t {} && tmux capture-pane -e -p -t {}:$(tmux list-windows -t {} 2> /dev/null)" \
+    --preview="tmux list-windows -t {} && tmux capture-pane -e -p -t {}:$(tmux list-windows -t {} 2>/dev/null)" \
     --bind "enter:accept-or-print-query" |
     awk -F: '{print $1}' | tr -d " ")
 
@@ -25,6 +24,8 @@ if [ -z "$selected_session" ]; then
 fi
 
 session_exists=$(echo "$sessions_info" | grep -w "$selected_session" || true)
+
+set -x
 
 if [[ -n $in_tmux_session && -n $session_exists ]]; then
     tmux switch-client -t "$selected_session" || tmux attach -t "$selected_session"
