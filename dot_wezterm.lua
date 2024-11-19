@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 local config = {}
 config.font = wezterm.font 'JetBrains Mono'
-config.font_size = 9.0
+config.font_size = 11.0
 config.color_scheme = 'Dark+'
 config.use_fancy_tab_bar = false
 config.show_tabs_in_tab_bar = false
