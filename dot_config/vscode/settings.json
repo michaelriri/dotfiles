@@ -111,6 +111,7 @@
     "vim.foldfix": true,
     "vim.leader": "<space>",
     "window.restoreWindows": "none",
+    "window.title": "",
     "window.zoomLevel": -1,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "none",
