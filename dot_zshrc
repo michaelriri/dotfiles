@@ -1,14 +1,18 @@
 #! /bin/zsh
 
-export EDITOR=$(command -v code >/dev/null 2>&1 && echo "code --wait" || echo "vim")
 export PATH=$HOME/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
 
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/go/bin:$PATH
 
+if command -v code >/dev/null 2>&1; then
+    export EDITOR="code --wait"
+else
+    export EDITOR="vim"
+fi
+
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
