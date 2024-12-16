@@ -35,10 +35,12 @@
             "path": "~/.user-words.txt"
         }
     },
-    "cSpell.enabledLanguageIds": [
-        "git-commit",
-        "markdown"
-    ],
+    "cSpell.checkOnlyEnabledFileTypes": true,
+    "cSpell.enabledFileTypes": {
+        "*": false,
+        "markdown": true,
+        "git": true,
+    },
     "cSpell.languageSettings": [
         {
             // exclude code.
