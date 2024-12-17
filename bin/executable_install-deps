@@ -2,9 +2,10 @@
 
 set -euo pipefail
 
-git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --all
+[ ! -d "$HOME/.oh-my-zsh" ] && git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+[ ! -d "$HOME/.fzf" ] && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --bin
 
-curl https://sh.rustup.rs -sSf | sh -s -- -y
+command -v rustc &>/dev/null || curl https://sh.rustup.rs -sSf | sh -s -- -y
+
 "$HOME/.cargo/bin/cargo" install cargo-update bat ripgrep
