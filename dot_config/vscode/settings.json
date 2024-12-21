@@ -36,6 +36,10 @@
         }
     },
     "cSpell.checkOnlyEnabledFileTypes": true,
+    "cSpell.enabledLanguageIds": [
+        "markdown",
+        "git"
+    ],
     "cSpell.enabledFileTypes": {
         "*": false,
         "markdown": true,
