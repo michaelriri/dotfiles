@@ -135,5 +135,11 @@
     "black-formatter.args": [
         "--line-length",
         "120"
-    ]
+    ],
+    "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [
+        "bugprone-*",
+        "clang-analyzer-*",
+        "modernize-*"
+    ],
+    "C_Cpp.clang_format_style": "LLVM"
 }
