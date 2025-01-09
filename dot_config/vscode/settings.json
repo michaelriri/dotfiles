@@ -68,7 +68,6 @@
     "editor.formatOnSave": true,
     "editor.inlayHints.enabled": "offUnlessPressed",
     "editor.inlayHints.padding": true,
-    "editor.inlineSuggest.enabled": false,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "none",
     "editor.scrollBeyondLastLine": false,
