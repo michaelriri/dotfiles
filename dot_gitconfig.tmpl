@@ -14,6 +14,7 @@ autoSetupRemote = true
 lg = log --graph --abbrev-commit --decorate --pretty=format:'%C(bold blue)%<(8)%h%C(reset) %C(bold green)%<(14)%ar%C(reset) %C(white)%s%C(reset) %C(auto)%d%C(reset)'
 branch-clean = !git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
 [user]
+name = "Michael Rios"
 email = {{ .email | quote }}
 [pull]
 ff = only
