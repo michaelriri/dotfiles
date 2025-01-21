@@ -40,7 +40,7 @@ update_notes() {
 }
 
 push_notes() {
-    git -C "$DIR" push
+    git -C "$DIR" push -f
 }
 
 case "$1" in
