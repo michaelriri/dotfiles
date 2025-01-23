@@ -1,7 +1,7 @@
 #! /bin/bash
 
 DIR=~/src/notes
-FILE="$DIR/notes.md"
+FILE="$DIR/log.md"
 DATE=$(date +"%a, %Y-%m-%d")
 
 open_notes() {
