@@ -22,7 +22,7 @@ open_notes() {
         } >>"$FILE"
     fi
 
-    code -g $FILE:100000000:1
+    code -n $DIR -g $FILE:100000000:1
 }
 
 update_notes() {
