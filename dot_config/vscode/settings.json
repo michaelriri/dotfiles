@@ -18,7 +18,8 @@
         "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.wordWrap": "off"
     },
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
@@ -140,5 +141,5 @@
         "clang-analyzer-*",
         "modernize-*"
     ],
-    "C_Cpp.clang_format_style": "LLVM"
+    "C_Cpp.clang_format_style": "LLVM",
 }
