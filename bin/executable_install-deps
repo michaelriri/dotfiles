@@ -8,4 +8,23 @@ set -euo pipefail
 
 command -v rustc &>/dev/null || curl https://sh.rustup.rs -sSf | sh -s -- -y
 
-"$HOME/.cargo/bin/cargo" install cargo-update bat ripgrep
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # install bat
+    curl -LO https://github.com/sharkdp/bat/releases/download/v0.25.0/bat-v0.25.0-aarch64-unknown-linux-gnu.tar.gz
+    tar -xzf bat-v0.25.0-aarch64-unknown-linux-gnu.tar.gz
+    sudo mv bat-v0.25.0-aarch64-unknown-linux-gnu/bat /usr/local/bin/
+    rm -rf bat-v0.25.0-aarch64-unknown-linux-gnu*
+
+    # install ripgrep
+    curl -LO https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep-14.1.1-aarch64-unknown-linux-gnu.tar.gz
+    tar -xzf ripgrep-14.1.1-aarch64-unknown-linux-gnu.tar.gz
+    sudo mv ripgrep-14.1.1-aarch64-unknown-linux-gnu/rg /usr/local/bin/
+    rm -rf ripgrep-14.1.1-aarch64-unknown-linux-gnu*
+
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    brew install ripgrep
+    brew install bat
+else
+    echo "Unsupported OS type: $OSTYPE"
+    exit 1
+fi
