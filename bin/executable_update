@@ -2,5 +2,4 @@
 
 cd ~/.oh-my-zsh/ && git pull
 cd ~/.fzf/ && git pull
-cargo install-update -a
 chezmoi update -v --force
