@@ -2,14 +2,6 @@
     HostName mslsmsaweb1.jpl.nasa.gov
     User mrios
 
-
-Host *
-    ControlMaster auto
-    ControlPath ~/.ssh/socket-%r@%h:%p
-    ControlPersist yes
-    ServerAliveInterval 240
-    ServerAliveCountMax 10
-
 Host scctest
   HostName scctest
   User mrios
