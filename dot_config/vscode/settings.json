@@ -141,4 +141,5 @@
         "modernize-*"
     ],
     "C_Cpp.clang_format_style": "LLVM",
+    "zig.zls.enabled": "on",
 }
