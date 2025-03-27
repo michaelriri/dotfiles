@@ -4,6 +4,23 @@ DIR=~/src/notes
 FILE="$DIR/log.md"
 DATE=$(date +"%a, %Y-%m-%d")
 
+# moves open tasks to current date if they aren't done
+move_open_lists() {
+    # temporary file for processing
+    local temp_file=$(mktemp)
+    grep -E "^- \[\] " "$FILE" >"$temp_file"
+    grep -v -E "^- \[\] " "$FILE" >"${FILE}.tmp" && mv "${FILE}.tmp" "$FILE"
+
+    if [ -s "$temp_file" ]; then
+        # ensure there's a newline before adding lists
+        echo "" >>"$FILE"
+
+        # add the lists under the current date
+        cat "$temp_file" >>"$FILE"
+    fi
+    rm "$temp_file"
+}
+
 open_notes() {
     if [ ! -d "$DIR" ]; then
         mkdir -p "$DIR"
@@ -22,6 +39,7 @@ open_notes() {
         } >>"$FILE"
     fi
 
+    move_open_lists
     code -n $DIR -g $FILE:100000000:1
 }
 
