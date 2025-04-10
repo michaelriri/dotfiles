@@ -8,8 +8,8 @@ DATE=$(date +"%a, %Y-%m-%d")
 move_open_lists() {
     # temporary file for processing
     local temp_file=$(mktemp)
-    grep -E "^- \[\] " "$FILE" >"$temp_file"
-    grep -v -E "^- \[\] " "$FILE" >"${FILE}.tmp" && mv "${FILE}.tmp" "$FILE"
+    grep -E "^- \[\s*\] " "$FILE" >"$temp_file"
+    grep -v -E "^- \[\s*\] " "$FILE" >"${FILE}.tmp" && mv "${FILE}.tmp" "$FILE"
 
     if [ -s "$temp_file" ]; then
         # ensure there's a newline before adding lists
