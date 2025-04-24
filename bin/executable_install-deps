@@ -22,6 +22,11 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     rm -rf ripgrep-14.1.1-*-unknown-linux-*
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
+
+    # set vscode settings and keybinds
+    ln -sF "$HOME/.config/vscode/keybindings.json" "$HOME"/Library/Application\ Support/Code/User/keybindings.json
+    ln -sF "$HOME/.config/vscode/settings.json" "$HOME"/Library/Application\ Support/Code/User/settings.json
+
     brew install ripgrep
     brew install bat
 else
