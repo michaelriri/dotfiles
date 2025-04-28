@@ -1,0 +1,43 @@
+// Place your key bindings in this file to override the defaults
+[
+    // window navigation
+    {
+        "key": "CMD+h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "CMD+l",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "CMD+k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "CMD+j",
+        "command": "workbench.action.navigateDown"
+    },
+    {
+        "key": "CMD+t",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "cmd+b",
+        "command": "-markdown.extension.editing.toggleBold",
+    },
+    {
+        "key": "f5",
+        "command": "-debug.openView",
+        "when": "!debuggersAvailable"
+    },
+    {
+        "key": "f5",
+        "command": "-workbench.action.debug.start",
+        "when": "debuggersAvailable && debugState == 'inactive'"
+    },
+    {
+        "key": "f5",
+        "command": "-workbench.action.debug.continue",
+        "when": "debugState == 'stopped'"
+    },
+]
