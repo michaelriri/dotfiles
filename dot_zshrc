@@ -37,6 +37,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     PATH="/Volumes/data/notes/scripts:$PATH"
 fi
 
+# completions
+source $HOME/.config/zsh/completions/chezmoi.zsh
+
 # HISTORY
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000000

@@ -8,7 +8,7 @@ Create `~/.config/chezmoi/chezmoi.toml` and add machine-to-machine differences i
 To install dotfiles on a new machine:
 
 ```
-$ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply michaelriri
+$ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --ssh --apply michaelriri
 ```
 
 ```
