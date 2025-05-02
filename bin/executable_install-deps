@@ -4,6 +4,9 @@ set -euo pipefail
 
 [ ! -d "$HOME/.oh-my-zsh" ] && git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 [ ! -d "$HOME/.fzf" ] && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+[ ! -d "$HOME/.oh-my-zsh/custom/plugins/fzf-tab" ] && git clone -depth 1 https://github.com/Aloxaf/fzf-tab ~/.oh-my-zsh/custom/plugins/fzf-tab
+
+[ ! -d "$HOME/.fzf" ] && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --bin
 
 command -v rustc &>/dev/null || curl https://sh.rustup.rs -sSf | sh -s -- -y
