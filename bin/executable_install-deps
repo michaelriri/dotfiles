@@ -15,13 +15,13 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # install bat
     curl -LO https://github.com/sharkdp/bat/releases/download/v0.25.0/bat-v0.25.0-x86_64-unknown-linux-musl.tar.gz
     tar -xzf bat-v0.25.0-*-unknown-linux-*.tar.gz
-    sudo mv bat-v0.25.0-*-unknown-linux-*/bat ~/bin/
+    mv bat-v0.25.0-*-unknown-linux-*/bat ~/bin/
     rm -rf bat-v0.25.0-*-unknown-linux-*
 
     # install ripgrep
     curl -LO https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep-14.1.1-x86_64-unknown-linux-musl.tar.gz
     tar -xzf ripgrep-14.1.1-*-unknown-linux-*.tar.gz
-    sudo mv ripgrep-14.1.1-*-unknown-linux-*/rg ~/bin/
+    mv ripgrep-14.1.1-*-unknown-linux-*/rg ~/bin/
     rm -rf ripgrep-14.1.1-*-unknown-linux-*
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
