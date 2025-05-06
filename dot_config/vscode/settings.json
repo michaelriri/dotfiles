@@ -95,7 +95,8 @@
     "jsonColorToken.languages": [
         "go",
         "json",
-        "jsonc"
+        "jsonc",
+        "toml",
     ],
     "markdown.preview.fontSize": 12,
     "prettier.tabWidth": 2,
