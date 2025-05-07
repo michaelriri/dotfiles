@@ -27,6 +27,17 @@
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
+    "black-formatter.args": [
+        "--line-length",
+        "120"
+    ],
+    "C_Cpp.clang_format_style": "LLVM",
+    "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [
+        "bugprone-*",
+        "clang-analyzer-*",
+        "modernize-*"
+    ],
+    "cSpell.checkOnlyEnabledFileTypes": true,
     "cSpell.customDictionaries": {
         "custom": true,
         "user-words": {
@@ -36,35 +47,34 @@
             "path": "~/.user-words.txt"
         }
     },
-    "cSpell.checkOnlyEnabledFileTypes": true,
     "cSpell.enabledFileTypes": {
         "*": false,
-        "markdown": true,
         "git": true,
-        "go": true
+        "go": true,
+        "markdown": true
     },
     "cSpell.languageSettings": [
         {
-            "languageId": "markdown",
             "ignoreRegExpList": [
                 "/^\\s*```[\\s\\S]*?^\\s*```/gm",
                 "/^```(?:.|\\s)+?^```/mig",
                 "`.*`",
-            ]
+            ],
+            "languageId": "markdown"
         },
         {
-            "languageId": "go",
+            // ignore any import strings
+            "ignoreRegExpList": [
+                "import\\s*\\(\\s*([\\s\\S]*?)\\s*\\)", // multi-line import block
+                "import\\s+\"[^\"]*\"" // single-line import statement
+            ],
             "includeRegExpList": [
                 "\"(?:\\\\.|[^\"\\\\])*\"", // double-quoted string literals
                 "`[^`]*`", // raw string literals (backticks)
                 "//.*", // single-line comments
                 "/\\*[\\s\\S]*?\\*/" // multi-line comments
             ],
-            // ignore any import strings
-            "ignoreRegExpList": [
-                "import\\s*\\(\\s*([\\s\\S]*?)\\s*\\)", // multi-line import block
-                "import\\s+\"[^\"]*\"" // single-line import statement
-            ]
+            "languageId": "go"
         }
     ],
     "debug.allowBreakpointsEverywhere": true,
@@ -101,6 +111,9 @@
     "go.inlayHints.rangeVariableTypes": true,
     "go.lintTool": "golangci-lint",
     "go.toolsManagement.autoUpdate": true,
+    "gopls": {
+        "ui.semanticTokens": true
+    },
     "jsonColorToken.languages": [
         "go",
         "json",
@@ -141,15 +154,5 @@
     "yaml.schemas": {
         "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
     },
-    "black-formatter.args": [
-        "--line-length",
-        "120"
-    ],
-    "C_Cpp.codeAnalysis.clangTidy.checks.enabled": [
-        "bugprone-*",
-        "clang-analyzer-*",
-        "modernize-*"
-    ],
-    "C_Cpp.clang_format_style": "LLVM",
-    "zig.zls.enabled": "on",
+    "zig.zls.enabled": "on"
 }
