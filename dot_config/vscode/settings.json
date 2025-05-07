@@ -28,7 +28,7 @@
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
     "cSpell.customDictionaries": {
-        "custom": true, // Enable the `custom` dictionary
+        "custom": true,
         "user-words": {
             "addWords": true,
             "description": "Words used in by user",
@@ -37,25 +37,34 @@
         }
     },
     "cSpell.checkOnlyEnabledFileTypes": true,
-    "cSpell.enabledLanguageIds": [
-        "markdown",
-        "git"
-    ],
     "cSpell.enabledFileTypes": {
         "*": false,
         "markdown": true,
         "git": true,
+        "go": true
     },
     "cSpell.languageSettings": [
         {
-            // exclude code.
+            "languageId": "markdown",
             "ignoreRegExpList": [
                 "/^\\s*```[\\s\\S]*?^\\s*```/gm",
                 "/^```(?:.|\\s)+?^```/mig",
                 "`.*`",
+            ]
+        },
+        {
+            "languageId": "go",
+            "includeRegExpList": [
+                "\"(?:\\\\.|[^\"\\\\])*\"", // double-quoted string literals
+                "`[^`]*`", // raw string literals (backticks)
+                "//.*", // single-line comments
+                "/\\*[\\s\\S]*?\\*/" // multi-line comments
             ],
-            // use with Markdown files
-            "languageId": "markdown"
+            // ignore any import strings
+            "ignoreRegExpList": [
+                "import\\s*\\(\\s*([\\s\\S]*?)\\s*\\)", // multi-line import block
+                "import\\s+\"[^\"]*\"" // single-line import statement
+            ]
         }
     ],
     "debug.allowBreakpointsEverywhere": true,
