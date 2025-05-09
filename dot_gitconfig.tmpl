@@ -11,7 +11,7 @@ process = git-lfs filter-process
 [push]
 autoSetupRemote = true
 [alias]
-lg = log --graph --abbrev-commit --decorate --pretty=format:'%C(bold blue)%<(8)%h%C(reset) %C(bold green)%<(14)%ar%C(reset) %C(white)%s%C(reset) %C(auto)%d%C(reset)'
+lg = log --graph --abbrev-commit --decorate --pretty=format:'%C(86)%<(10)%h%C(reset) %C(69)%<(20)%ar%C(reset) %C(white)%s%C(reset) %C(202)%d%C(reset)'
 branch-clean = !git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
 [user]
 name = "Michael Rios"
