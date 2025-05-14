@@ -13,6 +13,7 @@ autoSetupRemote = true
 [alias]
 lg = log --graph --abbrev-commit --decorate --pretty=format:'%C(86)%<(10)%h%C(reset) %C(69)%<(20)%ar%C(reset) %C(white)%s%C(reset) %C(202)%d%C(reset)'
 branch-clean = !git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
+delete-tag = "!f() { git tag -d \"$1\" && git push origin \":refs/tags/$1\"; }; f"
 [user]
 name = "Michael Rios"
 email = {{ .email | quote }}
