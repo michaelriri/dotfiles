@@ -69,10 +69,9 @@
                 "import\\s+\"[^\"]*\"" // single-line import statement
             ],
             "includeRegExpList": [
-                "\"(?:\\\\.|[^\"\\\\])*\"", // double-quoted string literals
-                "`[^`]*`", // raw string literals (backticks)
                 "//.*", // single-line comments
-                "/\\*[\\s\\S]*?\\*/" // multi-line comments
+                "\"(?:\\\\.|[^\"\\\\])*\"", // double-quoted strings
+                "`[^`]*`" // raw string literals
             ],
             "languageId": "go"
         }
