@@ -1,0 +1,11 @@
+#! /bin/bash
+
+# batf: Follow a file with syntax highlighting using bat
+
+filename="$1"
+if [[ ! -f "$filename" ]]; then
+    echo "Error: File '$filename' does not exist."
+    return 1
+fi
+extension="${filename##*.}"
+tail -f "$filename" | bat -l "$extension" --paging=never
