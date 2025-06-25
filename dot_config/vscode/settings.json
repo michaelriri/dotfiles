@@ -138,7 +138,7 @@
     "vim.foldfix": true,
     "vim.leader": "<space>",
     "window.restoreWindows": "none",
-    "window.zoomLevel": -1,
+    "window.zoomLevel": -2,
     "workbench.iconTheme": "material-icon-theme",
     "workbench.startupEditor": "none",
     "yaml.customTags": [
