@@ -11,7 +11,7 @@ process = git-lfs filter-process
 [push]
 autoSetupRemote = true
 [alias]
-lg = log --abbrev-commit --decorate --pretty=format:'%C(yellow)%<(8)%h%C(reset) %C(italic dim white)%<(15,trunc)%ar%C(reset) %C(reverse green)%D%C(reset)%C(white)%s%C(reset) ' -20
+lg = log --abbrev-commit --decorate --pretty=format:'%C(yellow)%<(8)%h%C(reset) %C(italic dim white)%<(18,trunc)%ar%C(reset)%C(white)%<(75,trunc)%s%C(reset)%C(reverse green)%D%C(reset)' -20
 branch-clean = !git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
 delete-tag = "!f() { git tag -d \"$1\" && git push origin \":refs/tags/$1\"; }; f"
 [user]
