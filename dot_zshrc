@@ -20,12 +20,6 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 export KEYTIMEOUT=1
 
-if command -v pyenv >/dev/null 2>&1; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-fi
-
 export BAT_THEME="Visual Studio Dark+"
 if command -v bat >/dev/null 2>&1; then
     alias cat='bat'
@@ -85,3 +79,5 @@ zstyle :prompt:pure:prompt:error color 161
 zstyle :prompt:pure:execution_time color 230
 
 prompt pure
+
+. "$HOME/.local/bin/env"
