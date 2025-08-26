@@ -79,5 +79,3 @@ zstyle :prompt:pure:prompt:error color 161
 zstyle :prompt:pure:execution_time color 230
 
 prompt pure
-
-. "$HOME/.local/bin/env"
