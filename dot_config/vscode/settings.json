@@ -137,6 +137,10 @@
     "vale.valeCLI.path": "/opt/homebrew/bin/vale",
     "vim.foldfix": true,
     "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-f>": false,
+        "<C-p>": false
+    },
     "window.restoreWindows": "none",
     "window.zoomLevel": -1,
     "workbench.iconTheme": "material-icon-theme",
@@ -153,4 +157,6 @@
         "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
     },
     "zig.zls.enabled": "on",
+    "keyboard.dispatch": "keyCode",
+    "terminal.integrated.gpuAcceleration": "off",
 }
