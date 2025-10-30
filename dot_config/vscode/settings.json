@@ -58,7 +58,7 @@
             "ignoreRegExpList": [
                 "/^\\s*```[\\s\\S]*?^\\s*```/gm",
                 "/^```(?:.|\\s)+?^```/mig",
-                "`.*`",
+                "`[^`]*`"
             ],
             "languageId": "markdown"
         },
@@ -141,8 +141,8 @@
         "<C-f>": false,
         "<C-p>": false,
         "<C-w>": false,
-        "<C-b>": false
-
+        "<C-b>": false,
+        "<C-v>": false
     },
     "window.restoreWindows": "none",
     "window.zoomLevel": -1,
@@ -162,4 +162,11 @@
     "zig.zls.enabled": "on",
     "keyboard.dispatch": "keyCode",
     "terminal.integrated.gpuAcceleration": "off",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "chat.commandCenter.enabled": false,
 }
