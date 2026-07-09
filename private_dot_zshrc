@@ -31,7 +31,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     PATH="/Volumes/data/notes/scripts:$PATH"
 fi
 
-source $HOME/.local/bin/env
+[ -f "$HOME/.local/bin/env" ] && source "$HOME/.local/bin/env"
 
 # completions
 source $HOME/.config/zsh/completions/chezmoi.zsh
@@ -81,4 +81,3 @@ zstyle :prompt:pure:prompt:error color 161
 zstyle :prompt:pure:execution_time color 230
 
 prompt pure
-. "$HOME/.local/bin/env"
