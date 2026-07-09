@@ -1,4 +1,10 @@
+
 Create `~/.config/chezmoi/chezmoi.toml` and add machine-to-machine differences in config file:
+
+```
+$ mkdir -p ~/.config/chezmoi
+$ ~/.config/chezmoi/chezmoi.toml
+```
 
 ```toml
 [data]
@@ -15,10 +21,11 @@ $ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --ssh --apply michaelriri
 $ install-deps
 ```
 
-VSCODE looks for settings in `$HOME/Library/Application\ Support/Code/User/settings.json`. Create a symlink to the settings in `$HOME`:
+Create a symlink to the settings in `$HOME`, for vscode:
 
 ```
+# mac
 ln -s $HOME/.config/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
-
-ln -s $HOME/.config/vale/.vale.ini $HOME/Library/Application\ Support/vale/.vale.ini
+# ubuntu
+ln -s $HOME/.config/vscode/settings.json $HOME/.config/Code/User/settings.json
 ```
