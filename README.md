@@ -20,12 +20,3 @@ $ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --ssh --apply michaelriri
 ```
 $ install-deps
 ```
-
-Create a symlink to the settings in `$HOME`, for vscode:
-
-```
-# mac
-ln -s $HOME/.config/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
-# ubuntu
-ln -s $HOME/.config/vscode/settings.json $HOME/.config/Code/User/settings.json
-```
