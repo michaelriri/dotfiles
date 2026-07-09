@@ -166,4 +166,5 @@
     },
     "chat.commandCenter.enabled": false,
     "editor.fontSize": 10,
+    "chat.disableAIFeatures": true,
 }
