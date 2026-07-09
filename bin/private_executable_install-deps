@@ -23,9 +23,14 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     tar -xzf ripgrep-14.1.1-*-unknown-linux-*.tar.gz
     mv ripgrep-14.1.1-*-unknown-linux-*/rg ~/bin/
     rm -rf ripgrep-14.1.1-*-unknown-linux-*
+    rm $HOME/.config/Code/User/settings.json
+    rm $HOME/.config/Code/User/keybindings.json
+
+    ln -s $HOME/.config/vscode/settings.json $HOME/.config/Code/User/settings.json
+    ln -s $HOME/.config/vscode/keybindings.linux.json $HOME/.config/Code/User/keybindings.json
+
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-
     # set vscode settings and keybinds
     ln -sF "$HOME/.config/vscode/keybindings.json" "$HOME"/Library/Application\ Support/Code/User/keybindings.json
     ln -sF "$HOME/.config/vscode/settings.json" "$HOME"/Library/Application\ Support/Code/User/settings.json
