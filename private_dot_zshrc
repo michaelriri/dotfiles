@@ -81,3 +81,13 @@ zstyle :prompt:pure:prompt:error color 161
 zstyle :prompt:pure:execution_time color 230
 
 prompt pure
+
+# Claude Bedrock Configuration
+if [[ "$(hostname)" == *impulsespace* ]]; then
+    export AWS_PROFILE=impulse-prod-us-gov-west-1
+    export AWS_REGION=us-gov-west-1
+    export CLAUDE_CODE_USE_BEDROCK=1
+    export ANTHROPIC_MODEL="us-gov.anthropic.claude-opus-4-8"
+    export PATH="$HOME/.local/bin:$PATH"
+    export CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL=1
+fi
