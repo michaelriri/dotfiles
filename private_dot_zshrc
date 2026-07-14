@@ -63,11 +63,19 @@ setopt HIST_REDUCE_BLANKS   # Remove superfluous blanks from each command line b
 zstyle ':completion:*:*:make:*' tag-order 'targets'
 autoload -U compinit && compinit
 
-# https://github.com/nvm-sh/nvm
-# export NVM_DIR=~/.nvm
-# [ -f "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" --no-use
-# alias node='unalias node ; unalias npm ; nvm use default ; node $@'
-# alias npm='unalias node ; unalias npm ; nvm use default ; npm $@'
+# https://github.com/nvm-sh/nvm — lazy loaded so it doesn't slow shell startup
+export NVM_DIR=~/.nvm
+# Load nvm's bash completion (cheap) if present
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
+# Define shims that source nvm on first use, then hand off to the real command
+_load_nvm() {
+  unset -f nvm node npm npx 2>/dev/null
+  [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # this sets $PATH
+}
+nvm() { _load_nvm; nvm "$@"; }
+node() { _load_nvm; node "$@"; }
+npm() { _load_nvm; npm "$@"; }
+npx() { _load_nvm; npx "$@"; }
 
 # https://github.com/sindresorhus/pure
 fpath+=($HOME/.zsh/pure)
@@ -81,6 +89,8 @@ zstyle :prompt:pure:prompt:error color 161
 zstyle :prompt:pure:execution_time color 230
 
 prompt pure
+
+umask 0022
 
 # Claude Bedrock Configuration
 if [[ "$(hostname)" == *impulsespace* ]]; then
