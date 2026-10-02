@@ -3,8 +3,9 @@ Create `~/.config/chezmoi/chezmoi.toml` and add machine-to-machine differences i
 
 ```
 $ mkdir -p ~/.config/chezmoi
-$ ~/.config/chezmoi/chezmoi.toml
 ```
+
+Add the following to `~/.config/chezmoi/chezmoi.toml`:
 
 ```toml
 [data]
@@ -12,6 +13,8 @@ $ ~/.config/chezmoi/chezmoi.toml
 ```
 
 To install dotfiles on a new machine:
+
+Make sure ssh keys are setup w/ GitHub repo and run: 
 
 ```
 $ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --ssh --apply michaelriri
