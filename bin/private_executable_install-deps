@@ -11,7 +11,24 @@ set -euo pipefail
 
 command -v rustc &>/dev/null || curl https://sh.rustup.rs -sSf | sh -s -- -y
 
+[ ! -d "$HOME/.zsh/pure" ] && git clone --depth 1 https://github.com/sindresorhus/pure.git ~/.zsh/pure
+
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # install zsh
+    command -v zsh &>/dev/null || sudo apt-get install -y zsh
+
+    # switch interactive bash sessions to zsh
+    if ! grep -q 'Switch interactive sessions to zsh' "$HOME/.bashrc" 2>/dev/null; then
+        cat >> "$HOME/.bashrc" <<'EOF'
+
+# Switch interactive sessions to zsh (chsh unavailable)
+if [ -t 1 ] && [ -x /usr/bin/zsh ] && [ -z "$ZSH_VERSION" ] && [ -z "$BASH_EXECUTION_STRING" ]; then
+  export SHELL=/usr/bin/zsh
+  exec /usr/bin/zsh -l
+fi
+EOF
+    fi
+
     # install bat
     curl -LO https://github.com/sharkdp/bat/releases/download/v0.25.0/bat-v0.25.0-x86_64-unknown-linux-musl.tar.gz
     tar -xzf bat-v0.25.0-*-unknown-linux-*.tar.gz
@@ -23,8 +40,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     tar -xzf ripgrep-14.1.1-*-unknown-linux-*.tar.gz
     mv ripgrep-14.1.1-*-unknown-linux-*/rg ~/bin/
     rm -rf ripgrep-14.1.1-*-unknown-linux-*
-    rm $HOME/.config/Code/User/settings.json
-    rm $HOME/.config/Code/User/keybindings.json
+    rm -f $HOME/.config/Code/User/settings.json
+    rm -f $HOME/.config/Code/User/keybindings.json
+
+    mkdir -p "$HOME/.config/Code/User"
 
     ln -s $HOME/.config/vscode/settings.json $HOME/.config/Code/User/settings.json
     ln -s $HOME/.config/vscode/keybindings.linux.json $HOME/.config/Code/User/keybindings.json
